@@ -1,0 +1,51 @@
+
+
+:root{
+  --mainBg: #fefefe;
+  --sidebarBg: #2a2c2f;
+  --sidebarBorder: #191a1c;
+  --sidebartxtColor: #fff;
+  --textColor: #0d0d0d;
+  --headerBg: #fff;
+  --headerBorder: #d9d9d9;
+  --cardBgColor:#f1f1f1;
+
+  // Brand
+  --primary: #d7307e;
+
+  // Monochrome
+  --gray: #d9d9d9;
+  --gray-light: #f5f5f5;
+}
+
+:global(.dark) {
+    // Dark theme
+  --mainBg: #18191a;
+  --sidebarBg: #2a2c2f;
+  --sidebarBorder: #191a1c;
+  --sidebartxtColor: #fff;
+  --textColor: #fff;
+  --headerBg: #2a2c2f;
+  --headerBorder: #191a1c;
+  --cardBgColor:#2a2c2f;
+  }
+
+
+// Media query breakpoints
+$breakpoints: (
+  xxs: 375px,
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1400px,
+  xxl: 1600px
+);
+
+
+:global(*) {
+  box-sizing: border-box;
+  transition: background 0.15s linear;
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
