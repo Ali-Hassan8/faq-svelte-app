@@ -116,7 +116,7 @@ function resetSearch(){
             position: relative;
             width: 100%;
             padding: 15px;
-            padding-left: 40px;
+            padding-left: 45px;
             padding-right: 40px;
             border-radius: 10px;
             font-size: 1rem;

@@ -1,6 +1,12 @@
 <script>
    
-    import QA from './QA.svelte'
+    import QA from './QA.svelte';
+
+    let currentQuestionId = null;
+
+    function setCurrentQuestionId(id) {
+        currentQuestionId = id;
+    }
 
     function filterQuestion(cid, cquestions) {
         return cquestions.filter(question => cid === question.cid);
@@ -15,7 +21,8 @@
                     {@html category.c }
                 </h2>
                 {#each filterQuestion(category.cid, questions) as question}
-                    <QA {question} />
+                    <QA {question} currentQuestionId={currentQuestionId} 
+                        setCurrentQuestionId={setCurrentQuestionId}/>
                 {/each}
             </div>
         {/each}

@@ -26,7 +26,7 @@
 
     <MenuToggle/>
 
-    <Logo />
+    <!-- <Logo /> -->
     <nav class="nav">
         <ThemeSwitch on:theme-change={updateLogo} />
     </nav>

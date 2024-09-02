@@ -9,7 +9,7 @@
 
 
     onMount(()=>{
-        if(platformId ===2){
+        if(platformId ===3){
             projectId ='igenapps-7068e'
             agent = Apper;
         }else{

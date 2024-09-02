@@ -3,6 +3,8 @@
     import {searchVal} from './../store.js'; 
 
     export let question
+    export let currentQuestionId; // to track the currently active question
+    export let setCurrentQuestionId; // function to update the current active question ID
 
     let showAnswer = false;
 
@@ -16,7 +18,8 @@
         console.log($searchVal);  
         //sinput.focus();
 
-        showAnswer =true;
+        // showAnswer =true;
+        setCurrentQuestionId(question.u);
     }
 
 </script>
@@ -28,22 +31,22 @@ data-id={question.u}
     
     <p class="question" on:click="{() => setQuestion(question)}">    
         <strong>{@html question.q }</strong>
-    {#if $searchVal === question.q || showAnswer}
-        <svg on:click|stopPropagation={()=>{showAnswer = !showAnswer;$searchVal=''}} class="plus" enable-background="new 0 0 50 50" viewBox="0 0 50 50">
+    {#if currentQuestionId === question.u}
+        <svg on:click|stopPropagation={()=>{setCurrentQuestionId(null);$searchVal=''}} class="plus" enable-background="new 0 0 50 50" viewBox="0 0 50 50">
             <rect fill="none" height="50" width="50"/>
-            <line fill="none" stroke="#d7307e" stroke-miterlimit="10" stroke-width="4" x1="9" x2="41" y1="25" y2="25"/>
+            <line fill="none" stroke="#007AFF" stroke-miterlimit="10" stroke-width="4" x1="9" x2="41" y1="25" y2="25"/>
         
         </svg>
     {:else}
-        <svg on:click|stopPropagation={()=>{showAnswer = !showAnswer}} class="plus" enable-background="new 0 0 50 50" viewBox="0 0 50 50">
+        <svg on:click|stopPropagation={()=>{setCurrentQuestionId(question.u)}} class="plus" enable-background="new 0 0 50 50" viewBox="0 0 50 50">
             <rect fill="none" height="50" width="50"/>
-            <line fill="none" stroke="#d7307e" stroke-miterlimit="10" stroke-width="4" x1="9" x2="41" y1="25" y2="25"/>
-            <line fill="none" stroke="#d7307e" stroke-miterlimit="10" stroke-width="4" x1="25" x2="25" y1="9" y2="41"/>
+            <line fill="none" stroke="#007AFF" stroke-miterlimit="10" stroke-width="4" x1="9" x2="41" y1="25" y2="25"/>
+            <line fill="none" stroke="#007AFF" stroke-miterlimit="10" stroke-width="4" x1="25" x2="25" y1="9" y2="41"/>
         </svg>
     {/if}
     </p>
 
-    <blockquote class={$searchVal === question.q ? 'showAnswer' : showAnswer ? 'showAnswer':''}>{@html question.a}</blockquote>
+    <blockquote class={currentQuestionId === question.u ? 'showAnswer' : ''}>{@html question.a}</blockquote>
 
     
     <text class="keywords" style="display:none">{question.k}</text>

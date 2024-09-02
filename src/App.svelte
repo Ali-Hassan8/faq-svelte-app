@@ -59,8 +59,8 @@
     </main>
     {#if $store.state.chatOpen}
       <DialogFlow />
-    {:else}
-      <Support />
+    <!-- {:else}
+      <Support /> -->
     {/if}
   </div>
 
